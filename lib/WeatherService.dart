@@ -19,21 +19,22 @@ class WeatherService {
 
   void onDataLoaded(String responseText) {
     data = new JsonObject.fromJsonString(responseText);
-    wordlist.add(data.query.results.channel.location.city + ','+data.query.results.channel.location.country + ' | ' + ((int.parse(data.query.results.channel.item.condition.temp) - 32)* 5 / 9).round().toString() + '°C');
+    wordlist.add(data.query.results.channel.location.city + ',' +
+        data.query.results.channel.location.country + ' | ' +
+        ((int.parse(data.query.results.channel.item.condition.temp) - 32) * 5 /
+            9).round().toString() + '°C');
     String status = data.query.results.channel.item.condition.text;
-    if(identical(status,"Partly Cloudy"))
+    if (identical(status, "Partly Cloudy"))
       classIndex.add(0);
-    else
-    if(identical(status,"Mostly Cloudy"))
+    else if (identical(status, "Mostly Cloudy"))
       classIndex.add(1);
-    else
-    if(identical(status,"Cloudy"))
+    else if (identical(status, "Cloudy"))
       classIndex.add(1);
-    else
-    if(identical(status,"Rainy"))
+    else if (identical(status, "Rainy"))
       classIndex.add(2);
-    else
-    if(identical(status,"Fair"))
+    else if (identical(status, "Fair"))
+      classIndex.add(4);
+    else if (identical(status, "Clear"))
       classIndex.add(4);
     else
       print('Unknown status');
