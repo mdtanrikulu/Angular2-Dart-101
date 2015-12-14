@@ -1,0 +1,16 @@
+<div class="center-of-page">
+    <div *ng-for="#name of friendNames">
+        <div id="weatherStatus" class="status" [ng-class]="classList[classIndex[0]]"></div>
+        <h1>{{ name }}</h1>
+    </div>
+</div>
+
+<div class="weather-container">
+    <div class="sunny"></div>
+    <div class="cloudy"></div>
+    <div class="rainy"></div>
+    <div class="snowy"></div>
+    <div class="rainbow"></div>
+    <div class="starry"></div>
+    <div class="stormy"></div>
+</div>

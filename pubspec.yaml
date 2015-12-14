@@ -1,0 +1,9 @@
+name: Angular2_Dart_101
+version: 0.0.1
+dependencies:
+  angular2: 2.0.0-alpha.47
+  browser: ^0.10.0
+  json_object: "1.0.19"
+transformers:
+- angular2:
+    entry_points: web/main.dart
