@@ -33,9 +33,9 @@ class WeatherService {
     else if (identical(status, "Rainy"))
       classIndex.add(2);
     else if (identical(status, "Fair"))
-      classIndex.add(4);
+      new DateTime.now().hour > 18 || new DateTime.now().hour < 6 ? classIndex.add(4) : classIndex.add(0);
     else if (identical(status, "Clear"))
-      classIndex.add(4);
+      new DateTime.now().hour > 18 || new DateTime.now().hour < 6 ? classIndex.add(4) : classIndex.add(0);
     else
       print('Unknown status');
   }
