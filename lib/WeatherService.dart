@@ -28,7 +28,7 @@ class WeatherService {
       classIndex.add(0);
     else if (identical(status, "Mostly Cloudy"))
       classIndex.add(1);
-    else if (identical(status, "Cloudy"))
+    else if (identical(status, "Cloudy") || identical(status, "Fog"))
       classIndex.add(1);
     else if (identical(status, "Rainy"))
       classIndex.add(2);
@@ -36,6 +36,8 @@ class WeatherService {
       new DateTime.now().hour > 18 || new DateTime.now().hour < 6 ? classIndex.add(4) : classIndex.add(0);
     else if (identical(status, "Clear"))
       new DateTime.now().hour > 18 || new DateTime.now().hour < 6 ? classIndex.add(4) : classIndex.add(0);
+    else if (identical(status, "Light Snow") || identical(status, "Snow"))
+      classIndex.add(6);
     else
       print('Unknown status');
   }
