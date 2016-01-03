@@ -30,7 +30,7 @@ class WeatherService {
       new DateTime.now().hour > 16 || new DateTime.now().hour < 6 ? classIndex.add(4) : classIndex.add(0);
     else if (identical(status, "Mostly Cloudy"))
       classIndex.add(1);
-    else if (identical(status, "Cloudy") || identical(status, "Fog"))
+    else if (identical(status, "Cloudy") || identical(status, "Fog") || identical(status, "Haze"))
       classIndex.add(1);
     else if (identical(status, "Rainy"))
       classIndex.add(2);
