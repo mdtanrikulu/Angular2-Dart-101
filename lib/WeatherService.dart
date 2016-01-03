@@ -15,7 +15,7 @@ class WeatherService {
 
   Future loadData(country) async {
     var url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22"+ country +"%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
-    HttpRequest.getString(url).then(onDataLoaded);
+    await HttpRequest.getString(url).then(onDataLoaded);
   }
 
   void onDataLoaded(String responseText) {
@@ -46,9 +46,10 @@ class WeatherService {
 
   Future<String> getLocation() async{
     GeoLocation geo = new GeoLocation();
-    String result = await geo.findLocation();
-    JsonObject resultJson = new JsonObject.fromJsonString(result);
-    loadData(resultJson.city);
+    String country = await geo.getCoordinates();
+    //String country = await geo.findLocation(coord.coords.latitude,coord.coords.longitude);
+    await loadData(country);
+    //loadData("Izmir");
   }
 
 
