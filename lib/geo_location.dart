@@ -8,7 +8,6 @@ import 'package:json_object/json_object.dart';
 
 @Injectable()
 class GeoLocation {
-
   num calculateDistance(num lat1, num lon1, num lat2, num lon2) {
     const EARTH_RADIUS = 6371; // km
     num latDiff = lat2 - lat1;
@@ -27,25 +26,6 @@ class GeoLocation {
   void alertError(PositionError error) {
     window.alert("Error occurred. Error code: ${error.code}");
   }
-
-
-/*  JsonObject data;
-  String location = "";
-
-  Future findLocation() async{
-    var ipUrl = 'https://api.ipify.org/?format=json';
-    String data = await HttpRequest.getString(ipUrl);
-    JsonObject dataJS = new JsonObject.fromJsonString(data);
-    //print(dataJS.ip);
-    var url = 'http://www.freegeoip.net/json/' + dataJS.ip;
-    //HttpRequest.getString(url).then(onDataLoaded);
-    return (await HttpRequest.getString(url));
-  }
-*/
-//  String onDataLoaded(String responseText) {
-//    print(responseText);
-//    return responseText;
-//  }
 
   Future getCoordinates() async {
     var completer = new Completer();
@@ -81,7 +61,12 @@ class GeoLocation {
         y.toString();
     JsonObject geoJson = new JsonObject.fromJsonString(
         await HttpRequest.getString(reverse_geocoding));
-    print(geoJson.results[1].address_components[0].long_name);
-    return geoJson.results[1].address_components[0].long_name;
+    print(geoJson.results[1].address_components[2].long_name);
+    return geoJson.results[1].address_components[2].long_name;
   }
+
+//  Future findPlacePhoto(city) async{
+//    String url = "http://loremflickr.com/1900/1000/"+city;
+//
+//  }
 }

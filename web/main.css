@@ -1,3 +1,15 @@
+.countrySelect{
+    position: absolute;
+    right: 25px;
+    top: 19.5px;
+}
+
+.countrySelect select{
+    font-size: 12pt;
+    font-family: 'Open Sans', sans-serif;
+    border: 1px solid #ccc;
+}
+
 .center-of-page{
     width: 250px;
     height: 160px;

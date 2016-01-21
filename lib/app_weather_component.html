@@ -1,8 +1,16 @@
-<div class="center-of-page">
-    <div *ng-for="#name of friendNames">
-        <div id="weatherStatus" class="status" [ng-class]="classList[classIndex[0]]"></div>
-        <h1>{{ name }}</h1>
+<div class="countrySelect">
+
+    <div class="form-group">
+        <select name="itemCheck" class="form-control" ngControl="item_check" (change)="getCities($event)">
+            <option *ngFor="#p of cities; #i = index" [value]="i">{{p}}</option>
+        </select>
     </div>
+</div>
+<div class="center-of-page">
+    <!--<div *ng-for="#name of weatherList">-->
+        <div id="weatherStatus" class="status" [ng-class]="status"></div>
+        <h1>{{ weatherList }}</h1>
+    <!--</div>-->
 </div>
 
 <div class="weather-container">
