@@ -3,9 +3,9 @@ import 'dart:html';
 
 class City {
   String city;
-  String latitude;
-  String longitude;
+  String info;
+  int condition;
   ImageBitmap photo;
-  City(this.city, this.latitude, this.longitude, [this.photo]);
-  String toString() => '$city ($latitude, $longitude)';
+  City(this.city, this.info, this.condition, [this.photo]);
+  String toString() => '$city ($condition)';
 }

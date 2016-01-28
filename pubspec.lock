@@ -69,10 +69,18 @@ packages:
     description: intl
     source: hosted
     version: "0.12.4+3"
+  js:
+    description: js
+    source: hosted
+    version: "0.6.0"
   json_object:
     description: json_object
     source: hosted
     version: "1.0.19"
+  jsonp:
+    description: jsonp
+    source: hosted
+    version: "0.0.6"
   logging:
     description: logging
     source: hosted

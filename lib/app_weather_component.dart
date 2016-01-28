@@ -60,7 +60,7 @@ const List<String> _classList = const [
 class AppWeatherComponent {
 
   int classIndex;
-  String weatherList = '';
+  String weatherInfo = '';
   String status;
   String curItemCheck;
   WeatherService service;
@@ -68,22 +68,23 @@ class AppWeatherComponent {
   List<String> get classList => _classList;
 
   List<String> get cities => _cities;
-  City model = new City(_cities[2], "", "", null);
 
   getCities($event) async {
     print(_cities[int.parse($event.target.value)]);
-    weatherList = '';
-    await service.loadData(_cities[int.parse($event.target.value)]);
-    weatherList = service.wordlist;
-    status = classList[service.classIndex];
+    weatherInfo = '';
+    City city = await service.loadData(_cities[int.parse($event.target.value)]);
+    weatherInfo = city.info;
+    status = classList[city.condition];
+    querySelector('.city-background').style.backgroundImage = "url("+ await service.findPlacePhoto(city.city)+")";
   }
 
   init(weatherService) async{
     this.service = weatherService;
-    await weatherService.getLocation();
-    weatherList = weatherService.wordlist;
+    City city = await weatherService.getLocation();
+    weatherInfo = city.info;
     try {
-      status = classList[weatherService.classIndex];
+      status = classList[city.condition];
+      querySelector('.city-background').style.backgroundImage = "url("+ await weatherService.findPlacePhoto(city.city)+")";
     } catch(exception, stackTrace) {
       print(exception);
       print(stackTrace);

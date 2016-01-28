@@ -64,9 +64,4 @@ class GeoLocation {
     print(geoJson.results[1].address_components[2].long_name);
     return geoJson.results[1].address_components[2].long_name;
   }
-
-//  Future findPlacePhoto(city) async{
-//    String url = "http://loremflickr.com/1900/1000/"+city;
-//
-//  }
 }
